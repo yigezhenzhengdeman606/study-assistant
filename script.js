@@ -1,12 +1,10 @@
-function startStudy(){
-    if(subject==git status"") {
-        let subject = document.getElementById("subject").value
-        document.getElementById("result").innerText = "pls enter a subjct"
-    }else{
-        let subject = document.getElementById("subject").value
-        document.getElementById("result").innerText = "you chose "+subject+"学吧，反正也学不会"
+function startStudy() {
+    let subject = document.getElementById("subject").value;
+
+    if (subject == "") {
+        document.getElementById("result").innerText = "Please enter a subject";
+    } else {
+        document.getElementById("result").innerText =
+            "You chose " + subject + "! Let's study " + subject + "!";
     }
-
-
-
 }

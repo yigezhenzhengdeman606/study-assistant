@@ -1,5 +1,5 @@
 function startStudy(){
-    if("") {
+    if(subject==git status"") {
         let subject = document.getElementById("subject").value
         document.getElementById("result").innerText = "pls enter a subjct"
     }else{

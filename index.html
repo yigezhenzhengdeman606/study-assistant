@@ -1,18 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <title>Study Assignment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Assistant 3.0</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .card {
+            width: min(760px, 90%);
+            box-sizing: border-box;
+            margin: 24px auto;
+        }
+
+        #chat {
+            max-height: 55vh;
+            overflow-y: auto;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .message {
+            margin: 12px 0;
+            padding: 14px;
+            border-radius: 12px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            line-height: 1.7;
+        }
+
+        .message.user {
+            background: #eaf2ff;
+        }
+
+        .message.assistant {
+            background: #f3f4f6;
+        }
+
+        #subject {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            min-height: 90px;
+            padding: 12px;
+            margin: 12px 0;
+            font: inherit;
+            resize: vertical;
+        }
+
+        button {
+            margin: 4px;
+        }
+
+        #result {
+            white-space: pre-wrap;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-<div class="card">
-<h1>Study Assistant</h1>
-<p>Welcome Hou Yuelin</p>
-<p>What do you want to study?</p>
-<input type="text"id="subject">
-<button onclick="startStudy()">Start study</button>
-<p id="result"></p>
-<script src="script.js"></script>
+    <main class="card">
+        <h1>Study Assistant 3.0</h1>
+        <p>连续提问，一起弄懂知识。</p>
+
+        <div id="chat" role="log" aria-label="聊天记录"></div>
+
+        <label for="subject">你的问题</label>
+        <textarea
+            id="subject"
+            placeholder="输入问题，或继续追问……"
+            maxlength="6000"
+        ></textarea>
+
+        <button id="sendButton" type="button" onclick="startStudy()">
+            发送
+        </button>
+        <button id="newChatButton" type="button" onclick="newChat()" disabled>
+            新对话
+        </button>
+
+        <p id="result" role="status" aria-live="polite"></p>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
